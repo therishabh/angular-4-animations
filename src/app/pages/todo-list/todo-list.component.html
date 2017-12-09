@@ -2,6 +2,11 @@
 	<h1>Todos</h1>
 	<input type="text" class="form-control" #newItem (keyup.enter)="addItem(newItem)">
 	<ul class="list-group">
-		<li class="list-group-item" *ngFor="let item of todoItems" (click)="removeItem(item)">{{item.title}}</li>
+		<li class="list-group-item" 
+			@fade
+			*ngFor="let item of todoItems" 
+			(click)="removeItem(item)">
+			{{item.title}}
+		</li>
 	</ul>
 </div>

@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, transition, style, animate   } from '@angular/animations';
 
 @Component({
 	selector: 'app-todo-list',
 	templateUrl: './todo-list.component.html',
-	styleUrls: ['./todo-list.component.scss']
+	styleUrls: ['./todo-list.component.scss'],
+	animations : [
+		trigger('fade',[
+			transition('void => *',[
+				style({ opacity:0 }),
+				animate(3000)
+			]),
+		])
+	]
 })
 export class TodoListComponent implements OnInit {
 	todoItems : any[] = [{
