@@ -7,10 +7,26 @@ import { trigger, state, transition, style, animate   } from '@angular/animation
 	styleUrls: ['./todo-list.component.scss'],
 	animations : [
 		trigger('fade',[
-			transition('void => *',[
-				style({ opacity:0 }),
+			state('void',style({opacity : 0})),
+
+			
+			transition(':enter, :leave',[ // this is equal to 'void <=> *'
 				animate(3000)
-			]),
+			]),	
+
+			// transition('void <=> *',[
+			// 	animate(3000)
+			// ]),			
+
+			// we can remove this line and use above trasition with bydirectional state..
+			// transition('void => *, * => void',[
+			// 	animate(3000)
+			// ]),
+
+			// we can use this transition into above transition.. 
+			// transition('* => void', [
+			// 	animate(2000)
+			// ])
 		])
 	]
 })
